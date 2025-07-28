@@ -31,14 +31,14 @@ static Field bikeMenus[] =
 	FIELD_EDITABLE_UINT("Max speed", &ui_vars.ui8_wheel_max_speed, "kph", 1, 99, .div_digits = 0, .inc_step = 1, .hide_fraction = true),
 #ifndef SW102
 	FIELD_EDITABLE_UINT("Circumference", &ui_vars.ui16_wheel_perimeter, "mm", 750, 3000, .inc_step = 10),
-	FIELD_EDITABLE_UINT("Max power limit", &ui_vars.ui16_motor_power_limit, "watts", 25, 1000, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
+	FIELD_EDITABLE_UINT("Max power limit", &ui_vars.ui16_motor_power_limit, "watts", 25, 1500, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
 	FIELD_EDITABLE_ENUM("Assist with error", &ui_vars.ui8_assist_whit_error_enabled, "no", "yes"),
 	FIELD_EDITABLE_ENUM("Throttle", &ui_vars.ui8_throttle_feature_enabled, "disable", "pedaling", "6km/h only", "6km/h & ped", "unconditional"),
 	FIELD_EDITABLE_ENUM("Cruise", &ui_vars.ui8_cruise_feature_enabled, "disable", "pedaling", "w/o pedaling"),
 	FIELD_EDITABLE_ENUM("Password enable", &ui_vars.ui8_password_enabled, "no", "yes"),
 #else
 	FIELD_EDITABLE_UINT("Circumfere", &ui_vars.ui16_wheel_perimeter, "mm", 750, 3000, .inc_step = 10),
-	FIELD_EDITABLE_UINT("Power limt", &ui_vars.ui16_motor_power_limit, "watts", 25, 1000, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
+	FIELD_EDITABLE_UINT("Power limt", &ui_vars.ui16_motor_power_limit, "watts", 25, 1500, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
 	FIELD_EDITABLE_ENUM("As with er", &ui_vars.ui8_assist_whit_error_enabled, "no", "yes"),
 	FIELD_EDITABLE_ENUM("Throttle", &ui_vars.ui8_throttle_feature_enabled, "disable", "pedaling", "6km/h only", "6km/h&ped" "w/o pedal"),
 	FIELD_EDITABLE_ENUM("Cruise", &ui_vars.ui8_cruise_feature_enabled, "disable", "pedaling", "w/o pedal"),
@@ -57,7 +57,7 @@ static Field bikeMenus[] =
 static Field batteryMenus[] =
 {
 #ifndef SW102
-	FIELD_EDITABLE_UINT("Max current", &ui_vars.ui8_battery_max_current, "amps", 1, 22),
+	FIELD_EDITABLE_UINT("Max current", &ui_vars.ui8_battery_max_current, "amps", 1, 24),
 	FIELD_EDITABLE_UINT("Low cut-off", &ui_vars.ui16_battery_low_voltage_cut_off_x10, "volts", 160, 630, .div_digits = 1),
 	FIELD_EDITABLE_UINT("Voltage cal %", &ui_vars.ui16_battery_voltage_calibrate_percent_x10, "volts", 950, 1050, .div_digits = 1),
 	FIELD_EDITABLE_UINT("Resistance", &ui_vars.ui16_battery_pack_resistance_x1000, "mohm", 0, 1000),
@@ -65,7 +65,7 @@ static Field batteryMenus[] =
 	FIELD_READONLY_UINT("Resistance est", &ui_vars.ui16_battery_pack_resistance_estimated_x1000, "mohm", 0, 1000),
 	FIELD_READONLY_UINT("Power loss est", &ui_vars.ui16_battery_power_loss, "watts", false, .div_digits = 0),
 #else
-	FIELD_EDITABLE_UINT("Max curren", &ui_vars.ui8_battery_max_current, "amps", 1, 20),
+	FIELD_EDITABLE_UINT("Max curren", &ui_vars.ui8_battery_max_current, "amps", 1, 24),
 	FIELD_EDITABLE_UINT("Lo cut-off", &ui_vars.ui16_battery_low_voltage_cut_off_x10, "volts", 160, 630, .div_digits = 1),
 	FIELD_EDITABLE_UINT("Voltag cal", &ui_vars.ui16_battery_voltage_calibrate_percent_x10, "volts", 950, 1050, .div_digits = 1),
 	FIELD_EDITABLE_UINT("Resistance", &ui_vars.ui16_battery_pack_resistance_x1000, "mohm", 0, 1000),
@@ -102,14 +102,14 @@ static Field motorMenus[] =
 {
 #ifndef SW102
 	FIELD_EDITABLE_ENUM("Motor voltage", &ui_vars.ui8_motor_type, "48V", "36V"),
-	FIELD_EDITABLE_UINT("Motor power max", &ui_vars.ui16_target_max_battery_power, "watts", 25, 1000, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
+	FIELD_EDITABLE_UINT("Motor power max", &ui_vars.ui16_target_max_battery_power, "watts", 25, 1500, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
 	FIELD_EDITABLE_UINT("Motor acceleration", &ui_vars.ui8_motor_acceleration_adjustment, "%", 0, 100, .div_digits = 0),
 	FIELD_EDITABLE_UINT("Motor deceleration", &ui_vars.ui8_motor_deceleration_adjustment, "%", 0, 100, .div_digits = 0),
 	FIELD_EDITABLE_ENUM("Field weakening", &ui_vars.ui8_field_weakening_feature_enabled, "disable", "enable"),
 	FIELD_EDITABLE_ENUM("Overcurrent delay", &ui_vars.ui8_battery_overcurrent_delay, "disable", "1", "2", "3", "4", "5"),
 #else
 	FIELD_EDITABLE_ENUM("Motor volt", &ui_vars.ui8_motor_type, "48V", "36V"),
-	FIELD_EDITABLE_UINT("Power max", &ui_vars.ui16_target_max_battery_power, "watts", 25, 1000, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
+	FIELD_EDITABLE_UINT("Power max", &ui_vars.ui16_target_max_battery_power, "watts", 25, 1500, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
 	FIELD_EDITABLE_UINT("Motor acc", &ui_vars.ui8_motor_acceleration_adjustment, "%", 0, 100, .div_digits = 0),
 	FIELD_EDITABLE_UINT("Motor dec", &ui_vars.ui8_motor_deceleration_adjustment, "%", 0, 100, .div_digits = 0),
 	FIELD_EDITABLE_ENUM("Field weak", &ui_vars.ui8_field_weakening_feature_enabled, "disable", "enable"),
@@ -291,7 +291,7 @@ static Field streetModeMenus[] =
 	FIELD_EDITABLE_ENUM("Enable Mode", &ui_vars.ui8_street_mode_enabled, "no", "yes"),
 	FIELD_EDITABLE_ENUM("Enable at startup", &ui_vars.ui8_street_mode_enabled_on_startup, "no", "yes"),
 	FIELD_EDITABLE_UINT("Speed limit", &ui_vars.ui8_street_mode_speed_limit, "kph", 1, 99, .div_digits = 0, .inc_step = 1, .hide_fraction = true),
-	FIELD_EDITABLE_UINT("Motor power limit", &ui_vars.ui16_street_mode_power_limit, "watts", 25, 1000, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
+	FIELD_EDITABLE_UINT("Motor power limit", &ui_vars.ui16_street_mode_power_limit, "watts", 25, 1500, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
 	FIELD_EDITABLE_ENUM("Throttle", &ui_vars.ui8_street_mode_throttle_enabled, "disable", "pedaling", "6km/h only", "6km/h & ped", "unconditional"),
 	FIELD_EDITABLE_ENUM("Cruise", &ui_vars.ui8_street_mode_cruise_enabled, "disable", "pedaling", "w/o pedaling"),
 	FIELD_EDITABLE_ENUM("Hotkey enable", &ui_vars.ui8_street_mode_hotkey_enabled, "no", "yes"),
@@ -299,7 +299,7 @@ static Field streetModeMenus[] =
 	FIELD_EDITABLE_ENUM("Enabl Mode", &ui_vars.ui8_street_mode_enabled, "no", "yes"),
 	FIELD_EDITABLE_ENUM("Enabl stup", &ui_vars.ui8_street_mode_enabled_on_startup, "no", "yes"),
 	FIELD_EDITABLE_UINT("Speed limt", &ui_vars.ui8_street_mode_speed_limit, "kph", 1, 99, .div_digits = 0, .inc_step = 1, .hide_fraction = true),
-	FIELD_EDITABLE_UINT("Power limt", &ui_vars.ui16_street_mode_power_limit, "watts", 25, 1000, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
+	FIELD_EDITABLE_UINT("Power limt", &ui_vars.ui16_street_mode_power_limit, "watts", 25, 1500, .div_digits = 0, .inc_step = 25, .hide_fraction = true),
 	FIELD_EDITABLE_ENUM("Throttle", &ui_vars.ui8_street_mode_throttle_enabled, "disable", "pedaling", "6km/h only", "6km/h&ped", "w/o pedal"),
 	FIELD_EDITABLE_ENUM("Cruise", &ui_vars.ui8_street_mode_cruise_enabled, "disable", "pedaling", "w/o pedal"),
 	FIELD_EDITABLE_ENUM("HotKy enab", &ui_vars.ui8_street_mode_hotkey_enabled, "no", "yes"),
