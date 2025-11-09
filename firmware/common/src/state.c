@@ -444,7 +444,10 @@ void rt_send_tx_package(frame_type_t type) {
 		// torque sensor offset set, for check the offset calibration
 		ui8_usart1_tx_buffer[76] = (uint8_t) (rt_vars.ui16_adc_pedal_torque_offset  & 0xff);
 		ui8_usart1_tx_buffer[77] = (uint8_t) (rt_vars.ui16_adc_pedal_torque_offset >> 8);
-		//ui16_adc_pedal_torque_range = (rt_vars.ui16_adc_pedal_torque_max - rt_vars.ui16_adc_pedal_torque_offset);
+		ui16_adc_pedal_torque_range =
+		(rt_vars.ui16_adc_pedal_torque_max - rt_vars.ui16_adc_pedal_torque_offset);
+		if (ui16_adc_pedal_torque_range == 0)
+			ui16_adc_pedal_torque_range = 1;
 		ui8_usart1_tx_buffer[78] = (uint8_t) (ui16_adc_pedal_torque_range  & 0xff);
 		ui8_usart1_tx_buffer[79] = (uint8_t) (ui16_adc_pedal_torque_range >> 8);
 		
